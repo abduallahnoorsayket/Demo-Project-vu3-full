@@ -1,6 +1,9 @@
 <template>
-<div class="text-center">
-    <h1> DC heros Members {{herosCount}} </h1>
+<div class="container">
+  <div class="row">
+  <div class="col-md-12">
+    <div class="mt-4 ml-4">
+    <h1 class="mb-4"> DC heros Members {{herosCount}} </h1>
     <ul>
     
       <li v-for="(hero,index) in dcHeros "  :key="hero.name">
@@ -8,14 +11,19 @@
         
         </li>
     </ul>
-  <form @submit.prevent="addHero">
+ <div class="mb-4">
+    <form @submit.prevent="addHero">
      
       <input v-model.trim="newHero" placeholder="Enter your hero ">
       <button type="submit">Add hero</button> <br>
       
   </form>
   <small> Total hereos in the list {{herosCount}}</small>
+ </div>
   </div>
+  </div>
+</div>
+</div>
  
 </template>
 
