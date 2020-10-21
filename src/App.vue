@@ -1,68 +1,22 @@
 <template>
-<div class="container">
-  <div class="row">
-  <div class="col-md-12">
-    <div class="mt-4 ml-4">
-    <h1 class="mb-4"> DC heros Members {{herosCount}} </h1>
-    <ul>
-    
-      <li v-for="(hero,index) in dcHeros "  :key="hero.name">
-        <p>{{hero.name}}  <button v-on:click="remove(index)">x</button></p> 
-        
-        </li>
-    </ul>
- <div class="mb-4">
-    <form @submit.prevent="addHero">
-     
-      <input v-model.trim="newHero" placeholder="Enter your hero ">
-      <button type="submit">Add hero</button> <br>
-      
-  </form>
-  <small> Total hereos in the list {{herosCount}}</small>
- </div>
-  </div>
-  </div>
-</div>
+
+<div class=" text-center">
+  <AppHeader/>
+  <!-- <DcHeros/> -->
+  <Calender/>
 </div>
  
 </template>
 
 <script> 
+import AppHeader from './components/Appheader';
+// import DcHeros from './components/DcHeros';
+import Calender from './components/Calender';
+
 export default {
-  computed:{
-    herosCount(){
-      return this.dcHeros.length;
-    }
-      
-  },
-  data(){
-   
-    return{
-      
-      isActive: false,
-       newHero:"",
-      dcHeros: [
-        {name:"superman"},
-        {name:"flash"},
-        {name:"ironman"},
-        {name: "wonderWomen"}
-      ]
-              
-    }
-  },
-  methods:{
-    addHero(){
-    if(this.newHero != ''){
-            this.dcHeros.push({name:this .newHero});
-          this.newHero='';
-    }
-    },
-    remove(index){
-       this.dcHeros  = this.dcHeros.filter((hero,i) => i != index);
-    }
+  components:{AppHeader, Calender},
 
-  }
-
+ 
 }
 </script>
 
